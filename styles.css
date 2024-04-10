@@ -13,13 +13,33 @@ body {
 .container {
     max-width: 400px;
     margin: auto;
-    padding: 20px;
+    padding: 40px;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 0px;
+    border: 0.2px solid black; /* Sets the border to be 3px thick and solid black */
+}
+.input-container {
+  position: relative;
+}
+
+.input-container::after {
+  content: '\e000'; /* Unicode for the exclamation mark icon */
+  font-family: 'Material Icons'; /* Font family for Material Icons */
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Adjust this value as needed */
+  transform: translateY(-50%);
+  color: rgb(0, 0, 0); /* Adjust the color of the icon as needed */
+  pointer-events: none; /* Ensure the icon doesn't interfere with input */
+}
+
+
+.taxForm{
+    margin-top: 50px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-top: 4px;
 }
 
 .form-group label {
@@ -44,6 +64,7 @@ body {
     color: #fff;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 50px;
 
 }
 
