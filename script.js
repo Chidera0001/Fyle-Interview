@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $("#taxForm").submit(function (event) {
     event.preventDefault();
-    calculateTax();
+    calculateTax(); // Ensure that calculateTax() is called when the form is submitted
   });
 
   $(".error-icon").click(function () {
@@ -19,11 +19,6 @@ function calculateTax() {
   var ageGroup = $("#age").val();
   var deductions = parseFloat($("#deductions").val());
 
-  if (isNaN(grossIncome) || isNaN(extraIncome) || isNaN(deductions)) {
-    displayErrorIcon();
-    return;
-  }
-
   var totalIncome = grossIncome + extraIncome - deductions;
   var tax = 0;
 
@@ -37,18 +32,16 @@ function calculateTax() {
     }
   }
 
-  displayResultModal(tax);
+  var netIncome = totalIncome - tax; // Subtract tax from total income to calculate net income
+
+  displayTaxResult(netIncome); // Pass the netIncome value to the displayTaxResult function
 }
 
-function displayErrorIcon() {
-  $(".error-icon").show();
-  $(".error-icon").tooltip({
-    title: "Please enter a valid number",
-    placement: "right",
-  });
-}
-
-function displayResultModal(tax) {
-  $("#taxResult").text("Tax Amount: " + tax.toFixed(2) + " Lakhs");
+function displayTaxResult(netIncome) {
+  $("#netIncomeDisplay").text(
+    "Your overall income will be " +
+      netIncome.toFixed(2) +
+      " Lakhs after tax deductions"
+  );
   $("#resultModal").show();
 }
