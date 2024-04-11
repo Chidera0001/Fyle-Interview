@@ -3,6 +3,9 @@ body {
     margin: 20px;
     background-color: #f7f7f7;
 }
+h1,h2,h3{
+    align-self: center ;
+}
 
 .calculator {
     border: 1px solid #ccc;
@@ -95,11 +98,14 @@ body {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin-top: 5%;
+    margin-left: 25%;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 3px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 50%;
+    height: 70%;
 }
 
 .close {

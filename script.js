@@ -44,10 +44,6 @@ function displayTaxResult(netIncome) {
   $("#taxDisplay").text("Your tax will be " + tax.toFixed(2) + " Lakhs");
 
   // Display net income (assuming you have an element with ID "netIncomeDisplay")
-  $("#netIncomeDisplay").text(
-    "Your overall income will be " +
-      netIncome.toFixed(2) +
-      " Lakhs after tax deductions"
-  );
+  $("#netIncomeDisplay").text(netIncome.toFixed(2) + " Lakhs");
   $("#resultModal").show();
 }
