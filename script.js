@@ -22,13 +22,13 @@ function calculateTax() {
   const totalIncome = grossIncome + extraIncome - deductions;
   let tax = 0;
 
-  if (totalIncome > 8) {
+  if (totalIncome > 800000) {
     if (ageGroup === "<40") {
-      tax = 0.3 * (totalIncome - 8);
+      tax = 0.3 * (totalIncome - 800000);
     } else if (ageGroup === "≥ 40 < 60") {
-      tax = 0.4 * (totalIncome - 8);
+      tax = 0.4 * (totalIncome - 800000);
     } else if (ageGroup === "≥ 60") {
-      tax = 0.1 * (totalIncome - 8);
+      tax = 0.1 * (totalIncome - 800000);
     }
   }
 
@@ -38,12 +38,12 @@ function calculateTax() {
 }
 
 function displayTaxResult(netIncome) {
-  const tax = netIncome > 8 ? netIncome - 8 : 0; // Tax applies only to income exceeding 8 Lakhs
+  const tax = netIncome > 800000 ? netIncome - 800000 : 0; // Tax applies only to income exceeding 8 Lakhs
 
   // Display tax amount (assuming you have an element with ID "taxDisplay")
   $("#taxDisplay").text("Your tax will be " + tax.toFixed(2) + " Lakhs");
 
   // Display net income (assuming you have an element with ID "netIncomeDisplay")
-  $("#netIncomeDisplay").text(netIncome.toFixed(2) + " Lakhs");
+  $("#netIncomeDisplay").text(netIncome.toFixed(2));
   $("#resultModal").show();
 }
