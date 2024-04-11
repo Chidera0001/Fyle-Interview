@@ -24,11 +24,11 @@ function calculateTax() {
 
   if (totalIncome > 800000) {
     if (ageGroup === "<40") {
-      tax = 0.3 * (totalIncome - 800000);
+      tax = 0.3 * totalIncome;
     } else if (ageGroup === "≥ 40 < 60") {
-      tax = 0.4 * (totalIncome - 800000);
+      tax = 0.4 * totalIncome;
     } else if (ageGroup === "≥ 60") {
-      tax = 0.1 * (totalIncome - 800000);
+      tax = 0.1 * totalIncome;
     }
   }
 
