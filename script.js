@@ -14,30 +14,37 @@ $(document).ready(function () {
 });
 
 function calculateTax() {
-  var grossIncome = parseFloat($("#grossIncome").val());
-  var extraIncome = parseFloat($("#extraIncome").val());
-  var ageGroup = $("#age").val();
-  var deductions = parseFloat($("#deductions").val());
+  const grossIncome = parseFloat($("#grossIncome").val());
+  const extraIncome = parseFloat($("#extraIncome").val());
+  const ageGroup = $("#age").val();
+  const deductions = parseFloat($("#deductions").val());
 
-  var totalIncome = grossIncome + extraIncome - deductions;
-  var tax = 0;
+  const totalIncome = grossIncome + extraIncome - deductions;
+  let tax = 0;
 
   if (totalIncome > 800000) {
     if (ageGroup === "<40") {
       tax = 0.3 * (totalIncome - 800000);
-    } else if (ageGroup === "≥ 40 &lt; 60") {
+    } else if (ageGroup === "≥ 40 < 60") {
       tax = 0.4 * (totalIncome - 800000);
     } else if (ageGroup === "≥ 60") {
       tax = 0.1 * (totalIncome - 800000);
     }
   }
 
-  var netIncome = totalIncome - tax; // Subtract tax from total income to calculate net income
+  const netIncome = totalIncome - tax; // Subtract tax from total income to calculate net income
 
   displayTaxResult(netIncome); // Pass the netIncome value to the displayTaxResult function
 }
 
 function displayTaxResult(netIncome) {
+  const tax =
+    800000 -
+    (netIncome -
+      parseFloat($("#grossIncome").val()) -
+      parseFloat($("#extraIncome").val()) +
+      parseFloat($("#deductions").val()));
+  $("#taxDisplay").text("Your tax will be " + tax.toFixed(2) + " Lakhs");
   $("#netIncomeDisplay").text(
     "Your overall income will be " +
       netIncome.toFixed(2) +
